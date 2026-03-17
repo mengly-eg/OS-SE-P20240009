@@ -1,0 +1,18 @@
+/home/mengly2/OS-SE-P20240009/OS-LAB-P20240009/LAB01/task2_files
+task2_file_commands.txt
+a.txt
+b.txt
+task2_file_commands.txt
+This is file A
+This is file B
+a.txt
+a_copy.txt
+b.txt
+task2_file_commands.txt
+a.txt
+a_copy.txt
+b_renamed.txt
+task2_file_commands.txt
+a.txt
+b_renamed.txt
+task2_file_commands.txt
