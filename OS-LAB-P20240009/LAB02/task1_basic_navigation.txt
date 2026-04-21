@@ -1,8 +1,8 @@
 /home/mengly2
 total 96
-drwxr-x--- 16 mengly2 mengly2  4096 Mar 17 19:43 .
+drwxr-x--- 16 mengly2 mengly2  4096 Mar 19 16:05 .
 drwxr-xr-x  3 root    root     4096 Mar 17 16:14 ..
--rw-------  1 mengly2 mengly2  3663 Mar 17 22:52 .bash_history
+-rw-------  1 mengly2 mengly2  4096 Apr  2 16:30 .bash_history
 -rw-r--r--  1 mengly2 mengly2     0 Mar 31  2024 .bash_logout
 -rw-r--r--  1 mengly2 mengly2  3771 Mar 17 14:07 .bashrc
 -rw-r--r--  1 mengly2 mengly2 12288 Mar 17 14:00 .bashrc.swp
@@ -12,20 +12,20 @@ drwx------ 15 mengly2 mengly2  4096 Mar 17 19:22 .config
 -rw-------  1 mengly2 mengly2    20 Mar 17 14:12 .lesshst
 drwx------  4 mengly2 mengly2  4096 Mar 17 16:15 .local
 -rw-r--r--  1 mengly2 mengly2     0 Mar 31  2024 .profile
-drwx------  2 mengly2 mengly2  4096 Mar 17 19:40 .ssh
+drwx------  2 mengly2 mengly2  4096 Apr  2 16:12 .ssh
 -rw-r--r--  1 mengly2 mengly2     0 Mar 17 09:17 .sudo_as_admin_successful
--rw-------  1 mengly2 mengly2   695 Mar 17 14:00 .viminfo
+-rw-------  1 mengly2 mengly2   975 Mar 19 10:28 .viminfo
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 14:36 Desktop
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 16:15 Documents
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 16:15 Downloads
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 16:15 Music
-drwxrwxr-x  4 mengly2 mengly2  4096 Mar 18 00:37 OS-SE-P20240009
+drwxrwxr-x  4 mengly2 mengly2  4096 Apr  2 14:24 OS-SE-P20240009
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 16:15 Pictures
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 16:15 Public
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 16:15 Templates
 drwxr-xr-x  2 mengly2 mengly2  4096 Mar 17 16:15 Videos
-drwx------  5 mengly2 mengly2  4096 Mar 17 15:00 snap
---- Root directory (/) ---
+drwx------  6 mengly2 mengly2  4096 Mar 19 10:27 snap
+--- Rooth directory (/) ---
 /
 bin
 bin.usr-is-merged
@@ -53,5 +53,5 @@ sys
 tmp
 usr
 var
---- Back to home ---
+---Back to home ---
 /home/mengly2
