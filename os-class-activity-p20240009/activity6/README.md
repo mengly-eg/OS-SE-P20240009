@@ -34,25 +34,25 @@
 ## Questions
 
 1. **What are the two shared resources in your bank transaction simulation?**
-   The two shared resources are `Account-A` and `Account-B` (guarded by their respective semaphore lock instances).
+   > The two shared resources are `Account-A` and `Account-B` (guarded by their respective semaphore lock instances).
 
 2. **Which line or section of your Task 1 program creates hold-and-wait?**
-   The segment in `Transfer.transfer()` where a thread keeps its hold on the first account resource (`from.lock.acquire()`) and then immediately invokes `to.lock.acquire()` to wait for the second resource without releasing the first.
+   > The segment in `Transfer.transfer()` where a thread keeps its hold on the first account resource (`from.lock.acquire()`) and then immediately invokes `to.lock.acquire()` to wait for the second resource without releasing the first.
 
 3. **How does Task 1 create circular wait?**
-   `Thread-1` holds the lock for Account-A and is waiting for Account-B. Simultaneously, `Thread-2` holds the lock for Account-B and is waiting for Account-A. This forms a closed loop of dependency dependency graph ($Thread-1 \rightarrow Account-B \rightarrow Thread-2 \rightarrow Account-A \rightarrow Thread-1$).
+   `> Thread-1` holds the lock for Account-A and is waiting for Account-B. Simultaneously, `Thread-2` holds the lock for Account-B and is waiting for Account-A. This forms a closed loop of dependency dependency graph ($Thread-1 \rightarrow Account-B \rightarrow Thread-2 \rightarrow Account-A \rightarrow Thread-1$).
 
 4. **Why does the Task 1 program need a watchdog or timeout?**
-   Because operating systems do not automatically resolve code deadlocks. Without an active watchdog observer thread monitoring execution time and forcing an exit, the program would hang silently forever, wasting CPU tracking frames and system resource threads.
+   > Because operating systems do not automatically resolve code deadlocks. Without an active watchdog observer thread monitoring execution time and forcing an exit, the program would hang silently forever, wasting CPU tracking frames and system resource threads.
 
 5. **How does the single semaphore mutex prevent deadlock in Task 2?**
-   It forces serialization. By forcing each worker thread to get clearance from the global `mutex` before initiating any account balance manipulation, it prevents multiple transactions from interlacing their allocations and holding partial resources simultaneously.
+   > It forces serialization. By forcing each worker thread to get clearance from the global `mutex` before initiating any account balance manipulation, it prevents multiple transactions from interlacing their allocations and holding partial resources simultaneously.
 
 6. **Which of the four deadlock conditions does your Task 2 solution remove or avoid?**
-   It eliminates **Hold-and-Wait** (threads no longer hold a resource while waiting for another to be freed) and breaks **Circular Wait** (resources cannot be cross-locked into an interleaved circle dependency).
+   > It eliminates **Hold-and-Wait** (threads no longer hold a resource while waiting for another to be freed) and breaks **Circular Wait** (resources cannot be cross-locked into an interleaved circle dependency).
 
 7. **Why must the final total bank balance remain unchanged after both transfers?**
-   Due to the law of conservation of money in isolated transactions. Because funds are simply moved between accounts within a closed system, any modification to the total sum would indicate a critical race condition, data corruption, or electronic duplication/loss of funds.
+   > Due to the law of conservation of money in isolated transactions. Because funds are simply moved between accounts within a closed system, any modification to the total sum would indicate a critical race condition, data corruption, or electronic duplication/loss of funds.
 
 ---
 
