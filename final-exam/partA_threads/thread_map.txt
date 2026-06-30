@@ -1,0 +1,7 @@
+se-rith+ 1572324 1572323 1572324  0    1 14:24 ?        00:00:00 bash -c ~/os-se-p20240038/final-exam/partA_threads/thread_demo & PID=$!; sleep 2; ps -T -p $PID > ~/os-se-p20240038/final-exam/partA_threads/thread_map.txt; wait $PID
+se-rith+ 1572325 1572324 1572325  0    6 14:24 ?        00:00:00 /home/se-rith-chankolboth/os-se-p20240038/final-exam/partA_threads/thread_demo
+se-rith+ 1572325 1572324 1572327  0    6 14:24 ?        00:00:00 /home/se-rith-chankolboth/os-se-p20240038/final-exam/partA_threads/thread_demo
+se-rith+ 1572325 1572324 1572328  0    6 14:24 ?        00:00:00 /home/se-rith-chankolboth/os-se-p20240038/final-exam/partA_threads/thread_demo
+se-rith+ 1572325 1572324 1572329  0    6 14:24 ?        00:00:00 /home/se-rith-chankolboth/os-se-p20240038/final-exam/partA_threads/thread_demo
+se-rith+ 1572325 1572324 1572330  0    6 14:24 ?        00:00:00 /home/se-rith-chankolboth/os-se-p20240038/final-exam/partA_threads/thread_demo
+se-rith+ 1572325 1572324 1572331  0    6 14:24 ?        00:00:00 /home/se-rith-chankolboth/os-se-p20240038/final-exam/partA_threads/thread_demo

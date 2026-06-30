@@ -1,0 +1,11 @@
+#!/bin/bash
+# Flush inventory back to starting scenario baseline state
+echo "80" > "$HOME/relay_pass_stock.txt"
+echo "Launching 60 QuantumTech baseline concurrency bots..."
+
+for process_index in {1..60}; do
+    buy_relay_pass "Customer_Agent_$process_index" 1 &
+done
+
+wait
+echo "Execution swarm finalized. Residual stock data: $(cat $HOME/relay_pass_stock.txt)"

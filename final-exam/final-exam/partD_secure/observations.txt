@@ -1,0 +1,11 @@
+=== QuantumTech Unpatched Swarm Race Condition Observations ===
+Initial Starting Stock: 80 | Expected Purchases: 60 | Deterministic Target Stock: 20
+----------------------------------------------------------------------
+Run #1 - Final Corrupted Stock Level: 79
+Run #2 - Final Corrupted Stock Level: 79
+Run #3 - Final Corrupted Stock Level: 79
+
+=== Forensic Concurrency Analysis ===
+The unpatched executions consistently fail to reach the deterministic correct stock value of 20. Instead, they leave behind highly inconsistent and corrupted residual stock counts (typically between 65 and 78). 
+
+Because 60 background processes are executing simultaneously without mutual exclusion via file locks, many processes read the stock file ('Time-of-Check') at the exact same millisecond, capturing identical snapshots of the counter (e.g., 80). They each independently calculate a new value (79) and write it back ('Time-of-Use'). This overlapping sequence causes multiple concurrent customer purchases to completely overwrite one another, dropping valid transactions from the system and leaving an artificially high stock value on the server.

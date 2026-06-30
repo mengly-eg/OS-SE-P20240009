@@ -1,0 +1,22 @@
+#!/bin/bash
+# Pre-flight environment preparation setup
+mkdir -p ~/exam_scan/node_alpha ~/exam_scan/node_beta
+echo "Metrics log entry Alpha" > ~/exam_scan/node_alpha/metric.log
+echo "Metrics log entry Beta" > ~/exam_scan/node_beta/metric.log
+
+OUTPUT_MANIFEST="final-exam/partC_scripting/collector_report.txt"
+echo "=== QuantumTech Core Manifest Inventory ===" > "$OUTPUT_MANIFEST"
+
+for scanned_node in ~/exam_scan/*; do
+    if [ -d "$scanned_node" ]; then
+        for resource in "$scanned_node"/*; do
+            # Defensive validation verification checks
+            if [ -f "$resource" ] && [ -r "$resource" ]; then
+                echo "[ACCESS SUCCESS] Extracting payload data from: $resource" >> "$OUTPUT_MANIFEST"
+                cat "$resource" >> "$OUTPUT_MANIFEST"
+            else
+                echo "[SECURITY SKIP] Dropping verification check on: $resource"
+            fi
+        done
+    fi
+done

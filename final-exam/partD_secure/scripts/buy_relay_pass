@@ -1,0 +1,35 @@
+#!/bin/bash
+STOCK_TRACKER="$HOME/relay_pass_stock.txt"
+AUDIT_LOG_FILE="$HOME/os-se-p20240009/final-exam/partD_secure/sales_log.txt"
+OPERATOR_ID="p20240009"
+
+CUSTOMER_NAME=$1
+ORDER_VOLUME=$2
+
+# Parameter Sanitization & Input Validation
+if [[ -z "$CUSTOMER_NAME" ]] || [[ ! "$ORDER_VOLUME" =~ ^[0-9]+$ ]] || [ "$ORDER_VOLUME" -le 0 ]; then
+    echo "TRANSACTION REJECTED: Input fields invalid."
+    exit 1
+fi
+
+if [ ! -f "$STOCK_TRACKER" ]; then
+    echo "80" > "$STOCK_TRACKER"
+fi
+
+# ==================== MUTEX PATChED CRITICAL SECTION ====================
+LOCK_DESCRIPTOR_FILE="/tmp/quantumtech_relay_pass.lock"
+
+(
+    flock -x 200
+    
+    CURRENT_INVENTORY=$(cat "$STOCK_TRACKER")
+    if [ "$CURRENT_INVENTORY" -ge "$ORDER_VOLUME" ]; then
+        sleep 0.05 
+        COMPUTED_INVENTORY=$(( CURRENT_INVENTORY - ORDER_VOLUME ))
+        echo "$COMPUTED_INVENTORY" > "$STOCK_TRACKER"
+        echo "TIMESTAMP: $(date '+%Y-%m-%d %H:%M:%S') | BUYER: $CUSTOMER_NAME | VOL: $ORDER_VOLUME | ENGINEER: $OPERATOR_ID" >> "$AUDIT_LOG_FILE"
+    else
+        echo "TRANSACTION ABORTED: Inventory depleted."
+    fi
+) 200>"$LOCK_DESCRIPTOR_FILE"
+# ========================================================================

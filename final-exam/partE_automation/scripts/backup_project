@@ -1,0 +1,19 @@
+#!/bin/bash
+SOURCE_ASSET="$HOME/quantumtech_project"
+STORAGE_VAULT="$HOME/project_backups"
+mkdir -p "$STORAGE_VAULT"
+
+DATETIME_STRING=$(date +%Y%m%d_%H%M%S)
+ARCHIVE_TARGET="$STORAGE_VAULT/archive_$DATETIME_STRING.tar.gz"
+
+# Step 1: Create the timestamped, compressed backup archive
+tar -czf "$ARCHIVE_TARGET" -C "$SOURCE_ASSET" .
+echo "[BACKUP PIPELINE COMPLETE] Saved data to: $ARCHIVE_TARGET" >> "$STORAGE_VAULT/backup_history.log"
+
+# Step 2: Implement Retention Pruning Strategy (Keep the 2 newest, delete the rest)
+cd "$STORAGE_VAULT" || exit
+ls -t archive_*.tar.gz 2>/dev/null | tail -n +3 | xargs -r rm
+
+# Log current folder state to prove retention works
+echo "--- Active Retained Node Snapshots ---" >> "$STORAGE_VAULT/backup_history.log"
+ls -la archive_*.tar.gz >> "$STORAGE_VAULT/backup_history.log"

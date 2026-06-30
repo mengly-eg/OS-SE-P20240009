@@ -1,0 +1,29 @@
+#!/bin/bash
+# ------------------------------------------------------------------
+# Company: QuantumTech
+# Product: Relay Pass Launch Monitor
+# Student ID: p20240009
+# ------------------------------------------------------------------
+
+# 1. Variables and Command Substitution
+USER_ID=$USER
+ACTIVE_CONNECTIONS=$(who | wc -l)
+UPTIME_STATS=$(uptime -p)
+
+# 2. Array containing at least 3 messages
+MOTD_MATRIX=(
+  "QuantumTech Operator Pipeline Status: Active."
+  "Relay Pass infrastructure is initialized and pending validation."
+  "Always safeguard system concurrency boundaries via appropriate mutex locks."
+)
+
+# 3. Select a random line from the array
+RANDOM_SELECTION=$(( RANDOM % ${#MOTD_MATRIX[@]} ))
+
+# 4. Output the dynamic banner
+echo "=========================================="
+echo " Active Operator: $USER_ID"
+echo " Co-Workers Online: $ACTIVE_CONNECTIONS"
+echo " Node Lifespan: $UPTIME_STATS"
+echo " Payload MOTD: ${MOTD_MATRIX[$RANDOM_SELECTION]}"
+echo "=========================================="

@@ -1,0 +1,6 @@
+#!/bin/bash
+mkdir -p ~/exam-backups
+GENERATION_TIMESTAMP=$(date +%H%M%S)
+
+# Tars the final-exam folder while saving outside the repo path to prevent infinite zip recursion
+tar -czf ~/exam-backups/final-exam-$GENERATION_TIMESTAMP.tar.gz -C /home/p20240009/os-se-p20240009 final-exam

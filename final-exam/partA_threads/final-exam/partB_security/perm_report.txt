@@ -1,0 +1,10 @@
+-rw------- 1 se-eang-mengly se-eang-mengly 0 Jun 30 14:30 final-exam/partB_security/private_file.txt
+drwxrwx--x 2 se-eang-mengly se-eang-mengly 4096 Jun 30 14:30 final-exam/partB_security/shared_dir
+  File: final-exam/partB_security/private_file.txt
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 252,0	Inode: 47474684    Links: 1
+Access: (0600/-rw-------)  Uid: ( 1125/se-eang-mengly)   Gid: ( 1127/se-eang-mengly)
+Access: 2026-06-30 14:30:18.639289931 +0700
+Modify: 2026-06-30 14:30:18.639289931 +0700
+Change: 2026-06-30 14:30:18.641289929 +0700
+ Birth: 2026-06-30 14:30:18.639289931 +0700
