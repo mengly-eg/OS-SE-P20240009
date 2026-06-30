@@ -1,0 +1,11 @@
+=== script permissions ===
+-rwxrwxr-x 1 mengly2 mengly2 405 Jun 16 14:12 /home/mengly2/bin/automation_demo
+=== log contents ===
+2026-06-16 14:13:03 | automation_demo started by user mengly2
+2026-06-16 14:13:03 | working directory is /home/mengly2/os-se-p20240009/os-lab-p20240009/lab10
+2026-06-16 14:13:03 | home directory is /home/mengly2
+2026-06-16 14:13:03 | automation_demo finished successfully
+2026-06-16 14:13:03 | automation_demo started by user mengly2
+2026-06-16 14:13:04 | working directory is /home/mengly2/os-se-p20240009/os-lab-p20240009/lab10
+2026-06-16 14:13:04 | home directory is /home/mengly2
+2026-06-16 14:13:04 | automation_demo finished successfully
